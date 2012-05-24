@@ -12,6 +12,7 @@ public class Comment {
    	private String id;
    	private String type;
 	private User user;
+	@JsonIgnore
    	private String clientInfo;
    	private String url;
    	private Body body;

@@ -6,9 +6,10 @@ import java.util.List;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown=true)
-
 public class ChatterItem{
    	private Body body;
+   	
+   	@JsonIgnore
    	private String clientInfo;
    	private Comments comments;
    	private String createdDate;
