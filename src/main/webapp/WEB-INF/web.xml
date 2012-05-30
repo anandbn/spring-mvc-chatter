@@ -14,6 +14,7 @@
             <param-value>org.springframework.web.servlet.FrameworkServlet.CONTEXT.spring</param-value>
         </init-param>
     </filter>
+    
     <filter-mapping>
         <filter-name>springSecurityFilterChain</filter-name>
         <url-pattern>/*</url-pattern>

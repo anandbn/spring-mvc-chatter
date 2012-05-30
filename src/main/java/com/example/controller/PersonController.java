@@ -35,9 +35,10 @@ public class PersonController {
 
     @RequestMapping("/chatter")
     public String chatterFeed(Map<String, Object> map) {
-    	map.put("chatterFeed", chatterService.getMyChatterFeed());
+    	/*map.put("chatterFeed", chatterService.getMyChatterFeed());
     	map.put("apiEndpoint",ForceSecurityContextHolder.get().getEndPointHost());
-        return "chatter";
+        */
+    	return "chatter";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)

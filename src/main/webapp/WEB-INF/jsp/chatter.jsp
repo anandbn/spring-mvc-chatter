@@ -4,7 +4,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -219,6 +218,39 @@ a.publisherattach img {
 	line-height: 15px;
 }
 </style>
+		<link rel="stylesheet" media="screen" href="/css/jquery.gritter.css"></link>
+        <script src="http://js.pusher.com/1.11/pusher.min.js" type="text/javascript" ></script>
+	<script src="http://twitter.github.com/bootstrap/assets/js/jquery.js"></script>
+        <script type="text/javascript" src="/javascripts/jquery.gritter.min.js"></script>
+        
+
+		<script type="text/javascript">
+    	// Enable pusher logging - don't include this in production
+    	Pusher.log = function(message) {
+      		if (window.console && window.console.log) window.console.log(message);
+    	};
+
+    	// Flash fallback logging - don't include this in production
+    	WEB_SOCKET_DEBUG = true;
+
+    	var pusher = new Pusher('5889dd749e5fa437d13e');
+    	var channel = pusher.subscribe('chatter_notify');
+    	channel.bind('new_chatter', function(data) {
+    	   $.gritter.add({
+				// (string | mandatory) the heading of the notification
+				title: data.title,
+				// (string | mandatory) the text inside the notification
+				text: data.message,
+
+				image: data.imgSrc,
+				// (bool | optional) if you want it to fade out on its own or just sit there
+				sticky: true,
+				// (int | optional) the time you want it to be alive for before fading out
+				time: ''
+			});
+    	});
+    	
+  	</script>
 </head>
 
 <body>
